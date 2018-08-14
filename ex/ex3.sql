@@ -11,7 +11,7 @@
 | Oblivion: Stories                                   |
 +-----------------------------------------------------+
 
-Solution
+-- Solution
 SELECT
 	title
 FROM books
