@@ -28,4 +28,18 @@
 --   NOW()
 -- );
 
-SELECT * FROM people;
+-- SELECT * FROM people;
+
+-- DAY()
+-- DAYNAME()
+-- DAYOFWEEK()
+-- DAYOFYEAR()
+
+-- SELECT name, birthdate FROM people;
+-- SELECT name, DAY(birthdate) FROM people;
+-- SELECT name, DAYNAME(birthdate) FROM people;
+-- SELECT name, DAYOFWEEK(birthdate) FROM people;
+-- SELECT name, DAYOFYEAR(birthdate) FROM people;
+-- SELECT name, MONTH (birthdate) FROM people;
+-- SELECT DATE_FORMAT(birthdate, '%W %M, %Y') from people;
+SELECT DATE_FORMAT(birthdate, '%m/%d/%Y') from people;
