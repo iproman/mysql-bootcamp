@@ -1,0 +1,1 @@
+SELECT DATEDIFF(birthdt, NOW()) from people;
