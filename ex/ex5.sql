@@ -43,7 +43,6 @@ CREATE TABLE inventory (
 -- this format:
 -- mm/dd/yyyy
 
-
 -- Ex 9
 -- Print out the current
 -- day and time using
@@ -51,10 +50,9 @@ CREATE TABLE inventory (
 -- January 2nd at 3:15
 -- April 1st at 10:18
 
-
-
-
-
-
-
-
+-- Ex 10
+-- Create a tweets table
+-- that stores:
+-- The Tweet content
+-- A Username
+-- Time it was created
