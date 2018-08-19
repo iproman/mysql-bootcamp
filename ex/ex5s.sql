@@ -60,7 +60,7 @@ SELECT DATE_FORMAT(
 CREATE TABLE tweets_table(
   content VARCHAR(150),
   username VARCHAR(20),
-  created_at DATETIME
+  created_at TIMESTAMP DEFAULT NOW()
 );
 
 
