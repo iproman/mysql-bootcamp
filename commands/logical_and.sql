@@ -14,3 +14,9 @@ SELECT released_year, author_lname
 FROM books
 WHERE author_lname='Eggers' &&
 released_year > 2010;
+
+SELECT released_year, author_lname
+FROM books
+WHERE author_lname='Eggers' &&
+released_year > 2010 AND
+title LIKE '%novel%';
