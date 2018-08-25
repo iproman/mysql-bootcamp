@@ -44,3 +44,11 @@ SELECT title, author_lname,
   END AS 'TYPE'
 FROM books
 ;
+
+SELECT author_lname,
+  CASE
+    WHEN COUNT(*) > 1 THEN CONCAT(COUNT(*), ' books')
+    ELSE CONCAT(COUNT(*), ' book')
+  END AS 'COUNT'
+FROM books
+GROUP BY author_lname;

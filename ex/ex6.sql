@@ -44,3 +44,21 @@ SELECT 1 IN (5,3) || 9 BETWEEN 8 AND 10; -- 0 (0, 1)
 -- | What We Talk About When We Talk About Love: Stories | Carver         | Short Stories |
 -- | Where I'm Calling From: Selected Stories            | Carver         | Short Stories |
 -- ...
+
+-- Ex 8 Bonus
+-- Make this happen
+-- +----------------+---------+
+-- | author_lname   | COUNT   |
+-- +----------------+---------+
+-- | Carver         | 2 books |
+-- | Chabon         | 1 book  |
+-- | DeLillo        | 1 book  |
+-- | Eggers         | 3 books |
+-- | Foster Wallace | 2 books |
+-- | Gaiman         | 3 books |
+-- | Harris         | 2 books |
+-- | Lahiri         | 2 books |
+-- | Saunders       | 1 book  |
+-- | Smith          | 1 book  |
+-- | Steinbeck      | 1 book  |
+-- +----------------+---------+
