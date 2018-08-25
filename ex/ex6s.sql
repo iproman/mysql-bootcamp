@@ -14,6 +14,11 @@ WHERE author_lname = 'Eggers' OR
 author_lname = 'Chabon'
 ;
 
+SELECT title, author_lname
+FROM books
+WHERE author_lname IN ('Eggers', 'Chabon')
+;
+
 -- Solution 4
 SELECT title, author_lname, released_year
 FROM books
