@@ -1,5 +1,5 @@
 -- Solution 1
--- 0, 1, 0 (0, 1)
+-- 0, 1, 1 (0, 1)
 
 -- Solution 2
 SELECT title, released_year
