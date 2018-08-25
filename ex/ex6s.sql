@@ -36,8 +36,10 @@ OR author_lname LIKE 'S%';
 SELECT title, author_lname,
   CASE
     WHEN title LIKE '%stories%' THEN 'Short Stories'
-    WHEN title LIKE '%just kids%' THEN 'Memoir'
-    WHEN title LIKE '%a heartbreaking work%' THEN 'Memoir'
+    WHEN
+      title LIKE '%just kids%' ||
+      title LIKE '%a heartbreaking work%'
+    THEN 'Memoir'
     ELSE 'Novel'
   END AS 'TYPE'
 FROM books
