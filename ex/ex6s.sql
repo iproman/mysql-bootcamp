@@ -31,11 +31,25 @@ SELECT title, pages
 FROM books
 WHERE pages BETWEEN 100 AND 200;
 
+SELECT title, pages
+FROM books
+WHERE pages >= 100 &&
+  pages <= 200;
+
 -- Solution 6
 SELECT author_lname
 FROM books
 WHERE author_lname LIKE 'C%'
 OR author_lname LIKE 'S%';
+
+SELECT author_lname
+FROM books
+WHERE SUBSTR(author_lname, 1,1) ='C'
+OR SUBSTR(author_lname, 1,1) ='S';
+
+SELECT author_lname
+FROM books
+WHERE SUBSTR(author_lname, 1,1) IN ('C', 'S');
 
 -- Solution 7
 SELECT title, author_lname,
@@ -50,10 +64,11 @@ SELECT title, author_lname,
 FROM books
 ;
 
+-- Solution 8
 SELECT author_lname,
   CASE
     WHEN COUNT(*) > 1 THEN CONCAT(COUNT(*), ' books')
     ELSE CONCAT(COUNT(*), ' book')
   END AS 'COUNT'
 FROM books
-GROUP BY author_lname;
+GROUP BY author_lname, author_fname;
