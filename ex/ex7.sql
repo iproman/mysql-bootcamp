@@ -31,6 +31,29 @@
 -- (2, 'De Montaigne and The Art of The Essay', 98),
 -- (4, 'Borges and Magical Realism', 89);
 
+-- 1
+-- +------------+---------------------------------------+-------+
+-- | first_name | title                                 | grade |
+-- +------------+---------------------------------------+-------+
+-- | Samantha   | De Montaigne and The Art of The Essay |    98 |
+-- | Samantha   | Russian Lit Through The Ages          |    94 |
+-- | Carlos     | Borges and Magical Realism            |    89 |
+-- | Caleb      | My Second Book Report                 |    75 |
+-- | Caleb      | My First Book Report                  |    60 |
+-- +------------+---------------------------------------+-------+
+
+-- 2
+-- +------------+---------------------------------------+-------+
+-- | first_name | title                                 | grade |
+-- +------------+---------------------------------------+-------+
+-- | Caleb      | My First Book Report                  |    60 |
+-- | Caleb      | My Second Book Report                 |    75 |
+-- | Samantha   | Russian Lit Through The Ages          |    94 |
+-- | Samantha   | De Montaigne and The Art of The Essay |    98 |
+-- | Carlos     | Borges and Magical Realism            |    89 |
+-- | Raj        | NULL                                  |  NULL |
+-- | Lisa       | NULL                                  |  NULL |
+-- +------------+---------------------------------------+-------+
 
 -- 3
 -- +------------+---------------------------------------+-------+
@@ -56,3 +79,4 @@
 -- | Lisa       |  0.0000 |
 -- +------------+---------+
 
+--5
