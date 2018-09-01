@@ -1,0 +1,32 @@
+-- 1
+-- SELECT first_name, title, grade
+-- FROM students
+-- RIGHT JOIN papers
+-- ON students.id = papers.student_id
+-- ORDER BY grade DESC;
+
+-- 2
+-- SELECT first_name, title, grade
+-- FROM students
+-- LEFT JOIN papers
+-- ON students.id = papers.student_id;
+
+-- 3
+-- SELECT
+--   first_name,
+--   IFNULL(title, 'MISSING') AS title,
+--   IFNULL(grade, 0) as grade
+-- FROM students
+-- LEFT JOIN papers
+-- ON students.id = papers.student_id;
+
+-- 4
+-- SELECT
+--   first_name,
+--   AVG(IFNULL(grade, 0)) AS grade
+-- FROM students
+-- LEFT JOIN papers
+-- ON students.id = papers.student_id
+-- GROUP BY (first_name)
+-- ORDER BY (grade) DESC
+-- ;
