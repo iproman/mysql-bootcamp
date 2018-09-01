@@ -31,6 +31,8 @@
 -- (2, 'De Montaigne and The Art of The Essay', 98),
 -- (4, 'Borges and Magical Realism', 89);
 
+-- Exercises
+
 -- 1
 -- +------------+---------------------------------------+-------+
 -- | first_name | title                                 | grade |
@@ -80,3 +82,12 @@
 -- +------------+---------+
 
 --5
+-- +------------+---------+----------------+
+-- | first_name | grade   | passing_status |
+-- +------------+---------+----------------+
+-- | Samantha   | 96.0000 | PASSING        |
+-- | Carlos     | 89.0000 | PASSING        |
+-- | Caleb      | 67.5000 | FAILING        |
+-- | Lisa       |  0.0000 | FAILING        |
+-- | Raj        |  0.0000 | FAILING        |
+-- +------------+---------+----------------+

@@ -27,6 +27,22 @@
 -- FROM students
 -- LEFT JOIN papers
 -- ON students.id = papers.student_id
--- GROUP BY (first_name)
+-- GROUP BY (students.id)
 -- ORDER BY (grade) DESC
 -- ;
+
+-- 5
+SELECT
+  first_name,
+  IFNULL(AVG(grade), 0) AS grade,
+  CASE
+    WHEN AVG(grade) >= 75 THEN 'PASSING'
+    WHEN AVG(grade) IS NULL THEN 'FAILING'
+    ELSE 'FAILING'
+  END AS passing_status
+FROM students
+LEFT JOIN papers
+ON students.id = papers.student_id
+GROUP BY(students.id)
+ORDER BY grade DESC
+;
