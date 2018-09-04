@@ -69,55 +69,50 @@
 --     (13,3,8.0),(13,4,7.2),
 --     (14,2,8.5),(14,3,8.9),(14,4,8.9);
 
--- SELECT * FROM series;
--- SELECT * FROM reviews;
+SELECT * FROM series;
+SELECT * FROM reviews;
 
 -- Challenge 1
--- SELECT
---   title,
---   rating
--- FROM series
--- JOIN reviews
---   ON series.id = reviews.series_id;
+SELECT
+  title,
+  rating
+FROM series
+JOIN reviews
+  ON series.id = reviews.series_id;
 
 -- Challenge 2 AVG rating
--- SELECT
---   title,
---   AVG(rating) AS avg_rating
--- FROM series
--- JOIN reviews
---   ON series.id = reviews.series_id
--- GROUP BY series.id
--- ORDER BY avg_rating;
-
--- Challenge 3
--- SELECT
---   first_name,
---   last_name,
---   rating
--- FROM reviewers
--- JOIN reviews
---   ON reviewers.id = reviews.reviewer_id;
-
--- Challenge 4
--- SELECT title, rating
--- FROM series
--- JOIN reviews
---   ON series.id = reviews.series_id
--- ;
-
--- Challenge 5 UNREVIEWED SERIES
--- SELECT title AS unrevied_series
--- FROM series
--- LEFT JOIN reviews
---   ON series.id = reviews.series_id
--- WHERE rating IS NULL;
-
--- Challenge 6
 SELECT
-  genre,
+  title,
   AVG(rating) AS avg_rating
 FROM series
 JOIN reviews
   ON series.id = reviews.series_id
-GROUP BY series.genre;
+GROUP BY series.id
+ORDER BY avg_rating;
+
+-- Challenge 3
+SELECT
+  first_name,
+  last_name,
+  rating
+FROM reviewers
+JOIN reviews
+  ON reviewers.id = reviews.reviewer_id;
+
+-- Challenge 4 UNREVIEWED SERIES
+SELECT title AS unrevied_series
+FROM series
+LEFT JOIN reviews
+  ON series.id = reviews.series_id
+WHERE rating IS NULL;
+
+-- Challenge 5
+SELECT
+  genre,
+  ROUND(AVG(rating),2) as avg_rating
+FROM series
+INNER JOIN reviews
+  ON series.id = reviews.series_id
+GROUP BY genre
+ORDER BY genre
+;
