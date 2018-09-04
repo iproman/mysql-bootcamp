@@ -71,7 +71,7 @@
 
 SELECT * FROM series;
 SELECT * FROM reviews;
-
+-- --
 -- Challenge 1
 SELECT
   title,
@@ -89,7 +89,7 @@ JOIN reviews
   ON series.id = reviews.series_id
 GROUP BY series.id
 ORDER BY avg_rating;
-
+--
 -- Challenge 3
 SELECT
   first_name,
@@ -98,14 +98,14 @@ SELECT
 FROM reviewers
 JOIN reviews
   ON reviewers.id = reviews.reviewer_id;
-
+--
 -- Challenge 4 UNREVIEWED SERIES
 SELECT title AS unrevied_series
 FROM series
 LEFT JOIN reviews
   ON series.id = reviews.series_id
 WHERE rating IS NULL;
-
+--
 -- Challenge 5
 SELECT
   genre,
@@ -116,3 +116,23 @@ INNER JOIN reviews
 GROUP BY genre
 ORDER BY genre
 ;
+
+-- Challenge 6
+SELECT
+  first_name,
+  last_name,
+  COUNT(reviews.reviewer_id) AS COUNT,
+  IFNULL(MIN(reviews.rating), 0) AS MIN,
+  IFNULL(MAX(reviews.rating), 0) AS MAX,
+  IFNULL(AVG(reviews.rating), 0) AS AVG,
+  CASE
+    WHEN AVG(reviews.rating) IS NULL THEN 'INACTIVE'
+    ELSE 'ACTIVE'
+  END AS STATUS
+FROM reviewers
+LEFT JOIN reviews
+  ON reviewers.id = reviews.reviewer_id
+GROUP BY first_name, last_name
+ORDER BY MIN DESC;
+
+-- IFNULL(AVG(grade), 0) AS grade,
