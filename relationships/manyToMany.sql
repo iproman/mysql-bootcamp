@@ -125,10 +125,11 @@ SELECT
   IFNULL(MIN(reviews.rating), 0) AS MIN,
   IFNULL(MAX(reviews.rating), 0) AS MAX,
   IFNULL(AVG(reviews.rating), 0) AS AVG,
-  CASE
-    WHEN AVG(reviews.rating) IS NULL THEN 'INACTIVE'
-    ELSE 'ACTIVE'
-  END AS STATUS
+--   CASE
+--     WHEN AVG(reviews.rating) IS NULL THEN 'INACTIVE'
+--     ELSE 'ACTIVE'
+--   END AS STATUS
+  IF(AVG(reviews.rating) IS NULL, 'INACTIVE', 'ACTIVE') AS STATUS
 FROM reviewers
 LEFT JOIN reviews
   ON reviewers.id = reviews.reviewer_id
