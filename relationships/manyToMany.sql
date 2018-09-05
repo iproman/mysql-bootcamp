@@ -136,4 +136,12 @@ LEFT JOIN reviews
 GROUP BY first_name, last_name
 ORDER BY MIN DESC;
 
--- IFNULL(AVG(grade), 0) AS grade,
+-- Challenge 7
+SELECT title, rating, CONCAT(first_name, ' ', last_name) AS reviewer
+FROM series
+JOIN reviews
+  ON series.id = reviews.series_id
+JOIN reviewers
+  ON reviews.reviewer_id = reviewers.id
+  ORDER BY title
+  ;
