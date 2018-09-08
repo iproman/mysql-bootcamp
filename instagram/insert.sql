@@ -21,6 +21,21 @@
 --   ('Amazing SHot!', 3, 2),
 --   ('I <3 This !', 2, 1);
 
-CREATE TABLE likes(
+-- INSERT INTO likes(
+--   user_id,
+--   photo_id
+-- ) VALUES
+--   (1, 1),
+--   (2, 1),
+--   (1, 2),
+--   (1, 3),
+--   (3, 3);
 
-)
+-- INSERT INTO follows(
+--   follower_id,
+--   followee_id
+-- ) VALUES
+--   (1,2),
+--   (1,3),
+--   (3,1),
+--   (2,3);
