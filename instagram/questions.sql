@@ -54,3 +54,30 @@ GROUP BY photo_id
 ORDER BY total DESC
 LIMIT 1
 ;
+
+-- Our Investors want to know ...
+-- 5. How many time does the
+-- average user post?
+
+SELECT
+  (SELECT COUNT(*) FROM photos)
+  /(SELECT COUNT(*) FROM users) as avg;
+
+
+-- A brand wants to know which hashtags to
+-- use in a post
+-- 6. What are the top 5 most
+-- commonly used hashtags?
+
+SELECT
+  COUNT(*) as counts,
+  tag_name
+FROM photos
+INNER JOIN photo_tags
+  ON photo_tags.photo_id = photos.id
+INNER JOIN tags
+  ON tags.id = photo_tags.tag_id
+GROUP BY tag_id
+ORDER BY counts DESC
+LIMIT 5
+;
