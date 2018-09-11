@@ -70,8 +70,8 @@ SELECT
 -- commonly used hashtags?
 
 SELECT
-  COUNT(*) as counts,
-  tag_name
+  tag_name,
+  COUNT(*) as counts
 FROM photos
 INNER JOIN photo_tags
   ON photo_tags.photo_id = photos.id
@@ -80,4 +80,18 @@ INNER JOIN tags
 GROUP BY tag_id
 ORDER BY counts DESC
 LIMIT 5
+;
+
+-- We have a small problem with
+-- bots on our site ...
+-- 7. Find users who have liked
+-- every single photo on the site
+SELECT
+	username,
+	COUNT(*) as total
+FROM users
+INNER JOIN likes
+  ON users.id = likes.user_id
+GROUP BY username
+HAVING total = (SELECT COUNT(*) FROM photos)
 ;
