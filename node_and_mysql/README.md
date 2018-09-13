@@ -1,3 +1,4 @@
-### npm install faker
+###  npm app.js
 
-#### npm app.js
+##### npm install faker
+##### npm install mysql
