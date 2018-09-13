@@ -1,4 +1,15 @@
-var faker = require('faker');
+/* Variables begin*/
+let faker = require('faker');
+let mysql = require('mysql');
+let connection = mysql.createConnection({
+    host: 'testing',
+    user: 'root',
+    password: '',
+    database: 'ig_clone'
+});
+let query;
+
+/* Variables end*/
 
 
 genAdd();
@@ -27,3 +38,18 @@ function genAdd(times = 1) {
     }
     return false;
 }
+
+/**
+ * Run mysql query
+ * @param query
+ */
+function mysqlRunQuery(query = '') {
+    connection.connect();
+    connection.query(query, function (error, results, fields) {
+        if (error) throw error;
+        console.log(results);
+    });
+    connection.end();
+}
+
+/* Functions end */
