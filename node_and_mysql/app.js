@@ -11,10 +11,17 @@ let query;
 
 /* Variables end*/
 
+/* Running code begin */
 
-genAdd();
 
-/* Functions */
+query = 'SELECT 1+5 AS answer';
+
+mysqlRunQuery(query);
+
+
+/* Running code end */
+
+/* Functions begin */
 /**
  * console.log
  * @param e
