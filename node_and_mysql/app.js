@@ -33,28 +33,27 @@ function con(e) {
 }
 
 /**
- * Generates fake address
+ * Generates random fake email address
+ * @param type
  * @param times
- * @returns {boolean}
+ * @returns {*}
  */
-function genAdd(times = 1) {
-    for (let i = 0; i < times; i++) {
-        con(faker.address.streetAddress());
-        con(faker.address.city());
-        con(faker.address.state());
+function generateFaker(type = 'email', times = 1) {
+    if(type === 'date.past'){
+        return faker.date.past();
+    } else {
+        return faker.internet.email();
     }
-    return false;
 }
 
 /**
  * Run mysql query
  * @param query
  */
-function mysqlRunQuery(query = '') {
-    connection.connect();
-    connection.query(query, function (error, results, fields) {
-        if (error) throw error;
-        console.log(results);
+function runMysqlQuery(query = '') {
+    connection.query('INSERT INTO users SET ?', query, function (err, result) {
+        if (err) throw err;
+        con(result);
     });
     connection.end();
 }
