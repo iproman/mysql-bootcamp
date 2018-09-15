@@ -1,25 +1,23 @@
 /* Variables begin*/
-let faker = require('faker');
 let mysql = require('mysql');
+let faker = require('faker');
 let connection = mysql.createConnection({
     host: 'testing',
     user: 'root',
     password: '',
-    database: 'ig_clone'
+    database: 'mb_node_and_mysql',
 });
-let query;
 
 /* Variables end*/
 
-/* Running code begin */
+let person = {
+    email: generateFaker(),
+    created_at: generateFaker('date.pass'),
+};
 
 
-query = 'SELECT 1+5 AS answer';
+runMysqlQuery(person);
 
-mysqlRunQuery(query);
-
-
-/* Running code end */
 
 /* Functions begin */
 /**
