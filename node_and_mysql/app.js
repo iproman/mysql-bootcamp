@@ -7,16 +7,17 @@ let connection = mysql.createConnection({
     password: '',
     database: 'mb_node_and_mysql',
 });
-
+let data = [];
+let person;
 /* Variables end*/
 
-let person = {
-    email: generateFaker(),
-    created_at: generateFaker('date.pass'),
+person = {
+    email: generateFaker('email'),
+    created_at: generateFaker('date'),
 };
 
-let data  = [];
-for(let i = 0; i < 500; i++){
+
+for (let i = 0; i < 500; i++) {
     data.push([
         generateFaker('email'),
         generateFaker('date'),
@@ -28,14 +29,13 @@ runMysqlQuery(data);
 
 
 /* Functions begin */
+
 /**
  * console.log
  * @param e
- * @returns {boolean}
  */
 function con(e) {
     console.log(e);
-    return false;
 }
 
 /**
@@ -47,11 +47,11 @@ function con(e) {
  * @returns {*}
  */
 function generateFaker(type) {
-    if(type === 'date'){
+    if (type === 'date') {
         return faker.date.past();
-    } else if(type === 'email') {
+    } else if (type === 'email') {
         return faker.internet.email();
-    }else {
+    } else {
         return faker.internet.email();
     }
 }
@@ -79,4 +79,5 @@ function runMysqlQuery(data = []) {
     });
     connection.end();
 }
+
 /* Functions end */
