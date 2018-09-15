@@ -22,16 +22,15 @@ WHERE email LIKE '%yahoo.com'
 -- 5
 SELECT
   CASE
-    WHEN email LIKE '%gmail'
+    WHEN email LIKE '%gmail%'
       THEN 'gmail'
-    WHEN email LIKE '%yahoo'
+    WHEN email LIKE '%yahoo%'
       THEN 'yahoo'
-    WHEN email LIKE '%hotmail'
+    WHEN email LIKE '%hotmail%'
       THEN 'hotmail'
     ELSE 'other'
-  END AS 'provider'
---   COUNT('provider') as 'total_users'
+  END AS provider,
+  COUNT(email) as total
 FROM users
--- GROUP BY 'provider',
+GROUP BY provider
 ;
-
