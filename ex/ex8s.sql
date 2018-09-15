@@ -1,5 +1,9 @@
 -- 1.
 SELECT * FROM users ORDER BY created_at LIMIT 1;
+-- Another solution
+SELECT
+	DATE_FORMAT(MIN(created_at), '%M %D %Y') AS earliest_date
+FROM users;
 
 -- 2.
 SELECT email FROM users ORDER BY created_at LIMIT 1;
