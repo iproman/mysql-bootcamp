@@ -45,10 +45,10 @@ function generateFaker(type = 'email', times = 1) {
 }
 
 /**
- * Run mysql query
- * @param query
+ * Run mysql query one string
+ * @param query string
  */
-function runMysqlQuery(query = '') {
+function runMysqlQueryOne(query = '') {
     connection.query('INSERT INTO users SET ?', query, function (err, result) {
         if (err) throw err;
         con(result);
@@ -56,4 +56,15 @@ function runMysqlQuery(query = '') {
     connection.end();
 }
 
+/**
+ * Run mysql query
+ * @param data array
+ */
+function runMysqlQuery(data = []) {
+    connection.query('INSERT INTO users VALUES ?', [data], function (err, result) {
+        if (err) throw err;
+        con(result);
+    });
+    connection.end();
+}
 /* Functions end */
