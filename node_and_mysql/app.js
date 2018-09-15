@@ -15,8 +15,16 @@ let person = {
     created_at: generateFaker('date.pass'),
 };
 
+let data  = [];
+for(let i = 0; i < 500; i++){
+    data.push([
+        generateFaker('email'),
+        generateFaker('date'),
+    ]);
+}
 
-runMysqlQuery(person);
+runMysqlQuery(data);
+// runMysqlQueryOne(person);
 
 
 /* Functions begin */
