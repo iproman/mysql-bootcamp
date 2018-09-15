@@ -32,14 +32,18 @@ function con(e) {
 
 /**
  * Generates random fake email address
+ * Generates:
+ * faker.internet.email() or
+ * faker.date.past()
  * @param type
- * @param times
  * @returns {*}
  */
-function generateFaker(type = 'email', times = 1) {
-    if(type === 'date.past'){
+function generateFaker(type) {
+    if(type === 'date'){
         return faker.date.past();
-    } else {
+    } else if(type === 'email') {
+        return faker.internet.email();
+    }else {
         return faker.internet.email();
     }
 }
