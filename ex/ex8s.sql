@@ -7,6 +7,9 @@ FROM users;
 
 -- 2.
 SELECT email FROM users ORDER BY created_at LIMIT 1;
+-- Another solution
+SELECT * FROM users
+WHERE created_at = (SELECT MIN(created_at) FROM users);
 
 -- 3.
 SELECT
@@ -15,6 +18,14 @@ SELECT
 FROM users
 GROUP BY month
 ORDER BY month;
+-- Another solution
+SELECT
+  MONTHNAME(created_at) as month,
+  COUNT(*) AS count
+FROM users
+GROUP BY month
+ORDER BY month
+;
 
 -- 4.
 SELECT
@@ -26,12 +37,9 @@ WHERE email LIKE '%yahoo.com'
 -- 5
 SELECT
   CASE
-    WHEN email LIKE '%gmail%'
-      THEN 'gmail'
-    WHEN email LIKE '%yahoo%'
-      THEN 'yahoo'
-    WHEN email LIKE '%hotmail%'
-      THEN 'hotmail'
+    WHEN email LIKE '%@gmail.com' THEN 'gmail'
+    WHEN email LIKE '%@yahoo.com' THEN 'yahoo'
+    WHEN email LIKE '%@hotmail.com' THEN 'hotmail'
     ELSE 'other'
   END AS provider,
   COUNT(email) as total
