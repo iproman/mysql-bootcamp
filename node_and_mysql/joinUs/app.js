@@ -3,6 +3,15 @@ let express = require('express');
 let app = express();
 let mysql = require('mysql');
 let faker = require('faker');
+let bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
+let connection = mysql.createConnection({
+    host: 'testing',
+    user: 'root',
+    password: '',
+    database: 'mb_node_and_mysql',
+});
+let responseOfMysql;
 app.set('view engine', 'ejs');
 let connection = mysql.createConnection({
     host: 'testing',
@@ -32,6 +41,13 @@ app.get('/', function (request, response) {
 app.get("/joke", function (req, res) {
     let joke = 'What you call a dog that does magic tricks? A labracadabrador';
     res.send(joke);
+});
+
+app.post("/register", function (req, res) {
+    // will work in terminal
+    con(req.body);
+    con('POST request. Email: ' + req.body.email);
+
 });
 
 app.get("/random-num", function (req, res) {
