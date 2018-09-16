@@ -5,6 +5,7 @@ let mysql = require('mysql');
 let faker = require('faker');
 let bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/public'));
 let connection = mysql.createConnection({
     host: 'testing',
     user: 'root',
@@ -47,7 +48,13 @@ app.post("/register", function (req, res) {
     // will work in terminal
     con(req.body);
     con('POST request. Email: ' + req.body.email);
-
+    let person = {
+        email: req.body.email,
+    };
+    connection.query('INSERT INTO users SET ?', person, function (err, result) {
+        if (err) throw err;
+        res.redirect('/');
+    });
 });
 
 app.get("/random-num", function (req, res) {
