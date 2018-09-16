@@ -3,6 +3,7 @@ let express = require('express');
 let app = express();
 let mysql = require('mysql');
 let faker = require('faker');
+app.set('view engine', 'ejs');
 let connection = mysql.createConnection({
     host: 'testing',
     user: 'root',
@@ -22,7 +23,8 @@ app.get('/', function (request, response) {
         var responseOfMysql = results[0].count;
 
         // will respond to browser
-        response.send('<h1>We have ' + responseOfMysql + ' users in our DB</h1>');
+        //response.send('<h1>We have ' + responseOfMysql + ' users in our DB</h1>');
+        response.render('home');
     });
 
 });
